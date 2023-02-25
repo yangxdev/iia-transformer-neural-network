@@ -3,7 +3,6 @@ import torch
 from torch import Tensor, nn
 from models.attention_head import AttentionHead
 
-
 class MultiHeadAttention(nn.Module):
     # num_heads rappresenta il numero di attention head che compongono la multi-head attentio, con i seguenti parametri:
     # - dim_in rappresenta la dimensione delle feature nel tensore di input passato attraverso questo modulo.

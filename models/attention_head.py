@@ -13,6 +13,7 @@ class AttentionHead(nn.Module):
         self.v = nn.Linear(dim_in, dim_k)
     
     def forward(self, query: Tensor, key: Tensor, value: Tensor) -> Tensor:
+        # the following line has been changed after the modification of the scaled_dot_product_attention function
         return ScaledDotProductAttention.forward(self, self.q(query), self.k(key), self.v(value))
     
 # dim_in rappresenta la dimensione delle feature nel tensore di input passato attraverso questo modulo.
