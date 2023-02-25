@@ -41,3 +41,15 @@ Consiglio di visualizzare il grafico per capire meglio la composizione di questi
 - MultiHeadAttention è composta da un numero di AttentionHead, che applicano una trasformazione lineare ai dati di input. Il risultato di questi strati lineari viene passato ad un ulteriore strato lineare, che applica una trasformazione lineare ai dati di input. Il risultato di questo strato lineare viene restituito come output del modulo MultiHeadAttention.
 
 Visualizza il rispettivo codice [qui](models/attention_head.py) e [qui](models/multi_head_attention.py)
+
+### Positional Encoding
+È necessario implementare un modulo che aggiunge un embedding di posizione ai dati di input. Questo embedding viene aggiunto alla somma tra i dati di input e l'embedding di posizione. L'embedding di posizione è calcolato come segue:
+
+$$
+\begin{align}
+PE_{(pos, 2i)} = \sin(pos / 10000^{2i/d_{\text{model}}}) \\
+PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{\text{model}}})
+\end{align}
+$$
+
+Visualizza il codice [qui](models/positional_encoding.py)
