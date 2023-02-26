@@ -1,4 +1,4 @@
-# Progetto di Introduzione all'Intelligenza Aritificiale 2022/2023
+# Progetto di Introduzione all'Intelligenza Artificiale 2022/2023
 
 ## Struttura del repository
  
