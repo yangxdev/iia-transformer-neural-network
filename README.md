@@ -1,5 +1,6 @@
-# Progetto di Introduzione all'Intelligenza Aritificiale 2022/2023
+# Progetto di Introduzione all'Intelligenza Artificiale 2022/2023
 
+Relazione estesa del progetto su [Notion](https://feather-floss-434.notion.site/Progetto-e13990b2b78641fa8b761475bc1c815d)
 ## Struttura del repository
  
 models  
