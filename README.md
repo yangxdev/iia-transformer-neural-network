@@ -3,16 +3,16 @@
 ## Struttura del repository
  
 models  
-  attention_head.py `il modulo Attention Head`  
-  decoder.py `il modulo Decoder`  
-  encoder.py `il modulo Encoder`  
-  feed_forward.py `il Point-wise feed-forward network`  
-  multi_head_attention.py `il modulo Multi-Head Attention`  
-  positional_encoding.py `Lo schema di Positional Encoding per il modello`  
-  residual.py `il modulo Residual`  
+  [attention_head.py](models/attention_head.py) `il modulo Attention Head`  
+  [decoder.py](models/decoder.py) `il modulo Decoder`  
+  [encoder.py](models/encoder.py) `il modulo Encoder`  
+  [multi_head_attention.py](models/multi_head_attention.py) `il modulo Multi-Head Attention`  
   transformer.py `il modulo Transformer`  
-scripts  
-  scaled_dot_product_attention.py `script Scaled Dot-Product Attention`  
+utilities 
+  [feed_forward.py](utilities/feed_forward.py) `il Point-wise feed-forward network`  
+  [positional_encoding.py](utilities/positional_encoding.py) `Lo schema di Positional Encoding per il modello`  
+  [residual.py](utilities/residual.py) `il modulo Residual`  
+  [scaled_dot_product_attention.py](utilities/scaled_dot_product_attention.py) `script Scaled Dot-Product Attention`  
   test.py `script per testare il modello`  
 
 
@@ -69,3 +69,20 @@ Nel metodo forward, il modulo Residual prende un numero di tensori di input come
 layer di normalizzazione e infine applica il dropout. Viene restituito il tensore di output.
 
 Visualizza il codice [qui](models/residual.py)
+
+### Encoder
+Possiamo finalmente procedere con l'implementazione del layer di encoding e dell'encoder stesso.
+Vedi [qua](https://www.notion.so/Progetto-e13990b2b78641fa8b761475bc1c815d?pvs=4#e8fe1b4c907f421ba17653f6d71aad3c) il paragrafo dedicato.
+
+Visualizza il codice [qui](models/encoder.py)
+
+### Decoder
+Vedi [qua](https://www.notion.so/Progetto-e13990b2b78641fa8b761475bc1c815d?pvs=4#f9f7bbb08aa94b84ad7b315d91bb1295) il paragrafo dedicato.
+
+Visualizza il codice [qui](models/decoder.py)
+
+### Transformer
+Infine è sufficiente unire Encoder e Decoder, come visto in precedenza dal grafico.
+![alt-text](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f26c3908-0b2a-4c70-9740-602231cd23f4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230226%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230226T164029Z&X-Amz-Expires=86400&X-Amz-Signature=a79a744bc95888465f67729cc829d0aebe7180610ceed57426e20ed7b9c045c1&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
+
+Visualizza il codice [qui](models/transformer.py)

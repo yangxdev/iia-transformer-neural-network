@@ -1,7 +1,7 @@
 # Codice contenente la classe AttentionHead
 import torch
 from torch import Tensor, nn
-from scripts.scaled_dot_product_attention import ScaledDotProductAttention
+from utilities.scaled_dot_product_attention import ScaledDotProductAttention
 
 # Una multi-head attention è composta da varie attention head identiche.
 # Ciascuna attention head contiene 3 layer lineari, seguite da una scaled dot-product attention.
