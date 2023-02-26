@@ -1,3 +1,4 @@
+# Codice contenente la classe PositionalEncoding che implementa l'encoding posizionale
 import torch
 import torch.nn as nn
 

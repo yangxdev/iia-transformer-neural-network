@@ -53,3 +53,19 @@ PE_{(pos, 2i+1)} = \cos(pos / 10000^{2i/d_{\text{model}}})
 $$
 
 Visualizza il codice [qui](models/positional_encoding.py)
+
+### Feed Forward
+Notiamo che ogni layer nel nostro Encoder e Decoder contiene un Fully Connected Feed-Forward Network, che consiste di due trasformazioni lineari con una attivazione ReLU in mezzo.
+Le dimensioni dell'input e dell'output sono 512, e la dimensione del layer interno è di 2048.
+
+Visualizza il codice [qui](models/feed_forward.py)
+
+### Residual
+Il modulo Residual possiede tre variabili:
+- sublayer, che rappresenta il modulo che viene eseguito all'interno del modulo Residual
+- norm, un layer di normalizzazione 
+- dropout, un layer di dropout
+Nel metodo forward, il modulo Residual prende un numero di tensori di input come argomento, applica a loro il modulo sublayer, a cui aggiunge il tensore originale di input, e applicai il
+layer di normalizzazione e infine applica il dropout. Viene restituito il tensore di output.
+
+Visualizza il codice [qui](models/residual.py)
