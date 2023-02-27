@@ -1,6 +1,10 @@
 from torch import Tensor, nn
+import torch
 from models.encoder import Encoder
 from models.decoder import Decoder
+from scripts.calculate_accuracy import calculate_accuracy
+from scripts.criterion import criterion
+
 
 class Transformer(nn.Module):
     def __init__(
@@ -31,3 +35,17 @@ class Transformer(nn.Module):
 
     def forward(self, src: Tensor, tgt: Tensor) -> Tensor:
         return self.decoder(tgt, self.encoder(src))
+
+    def evaluate(self, test_inputs: Tensor, test_targets: Tensor) -> tuple[float, float]:
+        self.eval()  # set the model to evaluation mode
+        with torch.no_grad():  # disable gradient computation to save memory
+            # feed inputs to the model
+            outputs = self(test_inputs, test_targets[:, :-1])
+            # calculate the loss
+            loss = criterion(
+                outputs.reshape(-1, outputs.shape[-1]), test_targets[:, 1:].reshape(-1))
+            accuracy = calculate_accuracy(
+                outputs, test_targets[:, 1:])  # calculate the accuracy
+
+        self.train()  # set the model back to training mode
+        return loss.item(), accuracy

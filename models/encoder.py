@@ -4,7 +4,7 @@ from torch import Tensor, nn
 from models.multi_head_attention import MultiHeadAttention
 from utilities.residual import Residual
 from utilities.feed_forward import FeedForward
-from utilities.positional_encoding import PositionalEncoding
+from utilities.positional_encoding import position_encoding
 
 # Si definisce la classe EncoderLayer che implementa il layer encoder, 
 # che è composto da un multi-head attention e da un feed forward
@@ -57,7 +57,7 @@ class Encoder(nn.Module):
     # Si aggiunge il positional encoding al tensore di input
     def forward(self, src: Tensor) -> Tensor:
         seq_len, dimension = src.size(1), src.size(2)
-        src += PositionalEncoding(seq_len, dimension)
+        src += position_encoding(seq_len, dimension)
         # Si passa il tensore di input attraverso i layer encoder
         for layer in self.layers:
             src = layer(src)

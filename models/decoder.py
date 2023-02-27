@@ -4,7 +4,7 @@ from torch import Tensor, nn
 from models.multi_head_attention import MultiHeadAttention
 from utilities.residual import Residual
 from utilities.feed_forward import FeedForward
-from utilities.positional_encoding import PositionalEncoding
+from utilities.positional_encoding import position_encoding
 
 # La classe DecoderLayer è molto simile a quella dell'encoder
 # La differenza è che il decoder layer ha due multi-head attention invece di una,
@@ -59,7 +59,7 @@ class Decoder(nn.Module):
 
     def forward(self, tgt: Tensor, memory: Tensor) -> Tensor:
         seq_len, dimension = tgt.size(1), tgt.size(2)
-        tgt += PositionalEncoding(seq_len, dimension)
+        tgt += position_encoding(seq_len, dimension)
         for layer in self.layers:
             tgt = layer(tgt, memory)
         return self.linear(tgt)

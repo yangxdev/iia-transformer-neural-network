@@ -1,6 +1,6 @@
 # Loading of the necessary files
 from models.transformer import Transformer
-from utilities.positional_encoding import PositionalEncoding
+from utilities.positional_encoding import position_encoding
 from utilities.scaled_dot_product_attention import ScaledDotProductAttention
 from models.multi_head_attention import MultiHeadAttention
 from utilities.feed_forward import FeedForward
@@ -20,8 +20,8 @@ model = Transformer(
 )
 
 # Preparing test data
-test_inputs = torch.rand(10, 32, 512)
-test_targets = torch.rand(20, 32, 512)
+test_inputs = torch.rand(32, 64, 512)
+test_targets = torch.rand(32, 64, 512)
 
 # Evalutation of the model
 loss, accuracy = model.evaluate(test_inputs, test_targets)
