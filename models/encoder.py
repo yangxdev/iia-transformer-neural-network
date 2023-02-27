@@ -6,8 +6,10 @@ from utilities.residual import Residual
 from utilities.feed_forward import FeedForward
 from utilities.positional_encoding import position_encoding
 
-# Si definisce la classe EncoderLayer che implementa il layer encoder, 
-# che è composto da un multi-head attention e da un feed forward
+# Si definisce la classe EncoderLayer che implementa il layer encoder,
+#  che è composto da un multi-head attention e da un feed forward
+
+
 class EncoderLayer(nn.Module):
     def __init__(
             self,
@@ -38,6 +40,8 @@ class EncoderLayer(nn.Module):
 
 # Si definisce la classe Encoder che implementa l'encoder,
 # che è composto da un numero di layer encoder
+
+
 class Encoder(nn.Module):
     def __init__(
             self,
