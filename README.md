@@ -89,3 +89,7 @@ Infine è sufficiente unire Encoder e Decoder, come visto in precedenza dal graf
 Visualizza il codice [qui](models/transformer.py)
 
 ## Testing
+
+Per il testing è necessario installare e importare il modulo [pytest](https://docs.pytest.org/en/7.2.x/), per poi creare un file test_sample.py, contenente il codice di testing
+
+Visualizza il codice [qui](test/test_sample.py)

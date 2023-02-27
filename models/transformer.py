@@ -2,8 +2,6 @@ from torch import Tensor, nn
 import torch
 from models.encoder import Encoder
 from models.decoder import Decoder
-from scripts.calculate_accuracy import calculate_accuracy
-from scripts.criterion import criterion
 
 
 class Transformer(nn.Module):
