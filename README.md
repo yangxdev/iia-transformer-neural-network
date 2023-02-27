@@ -1,24 +1,30 @@
 # Progetto di Introduzione all'Intelligenza Artificiale 2022/2023
+## Autore: J. Yang Xiang, 866013
 
-Relazione estesa del progetto su [Notion](https://feather-floss-434.notion.site/Progetto-e13990b2b78641fa8b761475bc1c815d)
+Relazione estesa del progetto su [Notion](https://feather-floss-434.notion.site/Progetto-e13990b2b78641fa8b761475bc1c815d),
+contenente descrizione dettagliata sulla struttura della rete e fondamenti teorici utili alla comprensione del progetto.
+
 ## Struttura del repository
  
-models  
+[models](models)  
   [attention_head.py](models/attention_head.py) `il modulo Attention Head`  
   [decoder.py](models/decoder.py) `il modulo Decoder`  
   [encoder.py](models/encoder.py) `il modulo Encoder`  
   [multi_head_attention.py](models/multi_head_attention.py) `il modulo Multi-Head Attention`  
-  transformer.py `il modulo Transformer`  
-utilities 
+  [transformer.py](models/transformer.py) `il modulo Transformer`  
+[utilities](utilities)  
   [feed_forward.py](utilities/feed_forward.py) `il Point-wise feed-forward network`  
   [positional_encoding.py](utilities/positional_encoding.py) `Lo schema di Positional Encoding per il modello`  
   [residual.py](utilities/residual.py) `il modulo Residual`  
   [scaled_dot_product_attention.py](utilities/scaled_dot_product_attention.py) `script Scaled Dot-Product Attention`  
-  test.py `script per testare il modello`  
+[README.md](/README.md) `questo file README`  
+[test_sample.py](/test_sample.py) `script per testare il modello`  
 
+## Struttura della rete
+![alt-text](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f26c3908-0b2a-4c70-9740-602231cd23f4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230227%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230227T204036Z&X-Amz-Expires=86400&X-Amz-Signature=0db879c0fb6a6f24f4c8d497f5fc16cf40d816de8544ea2289afdd3e48344cb9&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
 ## Codice
-Il codice è stato scritto in Python 3.9.15 e utilizza le librerie PyTorch 1.13.1.
+Il codice è stato scritto in Python 3.9.15 e utilizza le librerie PyTorch 1.13.1. La versione di PyTest è 7.2.1.
 
 ### Scaled Dot-Product Attention
 Partendo dalle basi, è necessario implementare una funzione di attenzione, che data una query, una chiave e un valore, restituisca un tensore di output. Con la seguente formula:
@@ -30,6 +36,7 @@ $$
 $$
 
 Q, K e V sono batch di matrici, ciascuno con dimensione (batch_size, seq_len, num_features). Moltiplicando Q e K otteniamo un tensore di dimensione (batch_size, seq_len, seq_len), che rappresenta la matrice di attenzione. Per ottenere un valore più stabile, dividiamo ogni elemento per la radice quadrata della dimensione della query. Infine, moltiplichiamo il tensore ottenuto per V, ottenendo il tensore di output.
+
 Visualizza il codice [qui](scripts/scaled_dot_product_attention.py)
 
 ### AttentionHead e MultiHeadAttention
@@ -92,4 +99,4 @@ Visualizza il codice [qui](models/transformer.py)
 
 Per il testing è necessario installare e importare il modulo [pytest](https://docs.pytest.org/en/7.2.x/), per poi creare un file test_sample.py, contenente il codice di testing
 
-Visualizza il codice [qui](test/test_sample.py)
+Visualizza il codice [qui](/test_sample.py)
