@@ -87,3 +87,5 @@ Infine è sufficiente unire Encoder e Decoder, come visto in precedenza dal graf
 ![alt-text](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f26c3908-0b2a-4c70-9740-602231cd23f4/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20230226%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20230226T164029Z&X-Amz-Expires=86400&X-Amz-Signature=a79a744bc95888465f67729cc829d0aebe7180610ceed57426e20ed7b9c045c1&X-Amz-SignedHeaders=host&response-content-disposition=filename%3D%22Untitled.png%22&x-id=GetObject)
 
 Visualizza il codice [qui](models/transformer.py)
+
+## Testing
