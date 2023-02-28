@@ -17,7 +17,7 @@ class Transformer(nn.Module):
     ):
         super().__init__()
         self.encoder = Encoder(
-            num_layers = 6,
+            num_layers=num_encoder_layers,
             dim_model=dim_model,
             num_heads=num_heads,
             dim_feedforward=dim_feedforward,

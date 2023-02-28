@@ -15,4 +15,3 @@ class Residual(nn.Module):
     def forward(self, *tensors: Tensor) -> Tensor:
         # *tensors: è un argomento variabile, quindi può essere passato un numero variabile di tensori
         return self.norm(tensors[0] + self.dropout(self.sublayer(*tensors)))
-
