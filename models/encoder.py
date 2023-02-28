@@ -53,6 +53,7 @@ class Encoder(nn.Module):
     ):
         super().__init__()
         # layers: lista di layer encoder
+        print("num_layers: ", num_layers)
         self.layers = nn.ModuleList(
             [EncoderLayer(dim_model, num_heads, dim_feedforward, dropout)
              for _ in range(num_layers)]
@@ -60,7 +61,7 @@ class Encoder(nn.Module):
 
     # Si aggiunge il positional encoding al tensore di input
     def forward(self, src: Tensor) -> Tensor:
-        seq_len, dimension = src.size(1), src.size(2)
+        seq_len, dimension = src.size(0), src.size(1)
         src += position_encoding(seq_len, dimension)
         # Si passa il tensore di input attraverso i layer encoder
         for layer in self.layers:
